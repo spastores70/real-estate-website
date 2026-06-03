@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanNest Realty</title>
+    <meta
+      name="description"
+      content="Modern real estate website with curated listings, smart search, and local agents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero-shell">
+      <nav class="nav container">
+        <a class="brand" href="#top">UrbanNest Realty</a>
+        <div class="nav-links">
+          <a href="#listings">Listings</a>
+          <a href="#agents">Agents</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section class="hero container" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Luxury • Modern • Local</p>
+          <h1>Find a home that fits your lifestyle.</h1>
+          <p class="lede">
+            Browse beautiful properties, refine your search with smart filters, and connect with top local agents in minutes.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#listings">Explore listings</a>
+            <a class="btn btn-secondary" href="#agents">Meet our agents</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <p class="mini-label">This week</p>
+          <h2>24 new homes</h2>
+          <ul>
+            <li>Beachfront villas</li>
+            <li>City penthouses</li>
+            <li>Family-friendly neighborhoods</li>
+          </ul>
+          <div class="metric-grid">
+            <article>
+              <strong>98%</strong>
+              <span>Client satisfaction</span>
+            </article>
+            <article>
+              <strong>120+</strong>
+              <span>Properties sold</span>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main class="container">
+      <section class="panel search-panel" aria-label="Search and filters">
+        <div>
+          <p class="eyebrow">Quick search</p>
+          <h2>Find your next place</h2>
+        </div>
+        <div class="controls-grid">
+          <label>
+            <span>Location</span>
+            <input id="searchInput" type="search" placeholder="Search neighborhood, city, or address" />
+          </label>
+          <label>
+            <span>Type</span>
+            <select id="typeFilter">
+              <option value="all">Any type</option>
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+            </select>
+          </label>
+          <label>
+            <span>Min price</span>
+            <select id="minPriceFilter">
+              <option value="0">Any</option>
+              <option value="500000">$500k+</option>
+              <option value="800000">$800k+</option>
+              <option value="1200000">$1.2M+</option>
+            </select>
+          </label>
+          <label>
+            <span>Bedrooms</span>
+            <select id="bedroomFilter">
+              <option value="all">Any</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section id="listings" class="section-heading">
+        <div>
+          <p class="eyebrow">Featured listings</p>
+          <h2>Handpicked properties</h2>
+        </div>
+        <p class="muted">Use the filters above to narrow down homes by location, type, budget, and size.</p>
+      </section>
+
+      <section id="propertyGrid" class="property-grid" aria-live="polite"></section>
+
+      <section id="agents" class="section-heading">
+        <div>
+          <p class="eyebrow">Meet the team</p>
+          <h2>Trusted real estate agents</h2>
+        </div>
+        <p class="muted">Local experts ready to guide your buying, selling, or investment journey.</p>
+      </section>
+
+      <section class="agent-grid">
+        <article class="agent-card">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" alt="Agent Maya Chen" />
+          <h3>Maya Chen</h3>
+          <p class="role">Luxury Homes Specialist</p>
+          <p>Known for waterfront homes and high-end condos in the city center.</p>
+        </article>
+        <article class="agent-card">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Agent Jordan Miles" />
+          <h3>Jordan Miles</h3>
+          <p class="role">Family Neighborhood Advisor</p>
+          <p>Helps buyers find spacious homes near schools, parks, and commuter routes.</p>
+        </article>
+        <article class="agent-card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="Agent Sofia Rivera" />
+          <h3>Sofia Rivera</h3>
+          <p class="role">Investment Property Expert</p>
+          <p>Focuses on rental income properties and smart long-term investment opportunities.</p>
+        </article>
+      </section>
+
+      <section id="contact" class="contact-card">
+        <div>
+          <p class="eyebrow">Book a consultation</p>
+          <h2>Ready to move?</h2>
+          <p class="muted">Tell us what you want, and our team will shortlist the best-fit homes for you.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:hello@urbannest.example">hello@urbannest.example</a>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>© 2026 UrbanNest Realty. Designed for modern home seekers.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
