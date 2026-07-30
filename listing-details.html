@@ -13,55 +13,28 @@
 </head>
 <body>
   <div id="siteHeader"></div>
-
   <main id="propertyPage">
     <section class="details-hero container">
       <div class="details-breadcrumb"><a href="index.html">Home</a><span>›</span><a href="listings.html">Search Homes</a><span>›</span><span id="breadcrumbTitle">Property Details</span></div>
-      <div class="property-heading">
-        <div><p class="eyebrow" id="propertyStatus">Texas home</p><h1 id="propertyTitle">Loading property...</h1><p id="propertyAddress"></p></div>
-        <div class="property-heading-actions"><button class="detail-save" id="saveProperty" type="button" aria-pressed="false">♡ Save Home</button><button class="share-button" id="shareProperty" type="button">Share</button></div>
-      </div>
+      <div class="property-heading"><div><p class="eyebrow" id="propertyStatus">Texas home</p><h1 id="propertyTitle">Loading property...</h1><p id="propertyAddress"></p></div><div class="property-heading-actions"><button class="detail-save" id="saveProperty" type="button" aria-pressed="false">♡ Save Home</button><button class="share-button" id="shareProperty" type="button">Share</button></div></div>
     </section>
-
-    <section class="gallery container" aria-label="Property photo gallery">
-      <button class="gallery-main" id="mainPhotoButton" type="button"><img id="mainPhoto" alt="Property exterior" /></button>
-      <div class="gallery-side" id="gallerySide"></div>
-    </section>
-
+    <section class="gallery container" aria-label="Property photo gallery"><button class="gallery-main" id="mainPhotoButton" type="button"><img id="mainPhoto" alt="Property exterior" /></button><div class="gallery-side" id="gallerySide"></div></section>
     <section class="details-layout container">
       <div class="details-main">
-        <section class="property-summary panel-card">
-          <div><p class="detail-price" id="propertyPrice"></p><p class="detail-type" id="propertyType"></p></div>
-          <div class="summary-facts"><article><strong id="factBeds">—</strong><span>Bedrooms</span></article><article><strong id="factBaths">—</strong><span>Bathrooms</span></article><article><strong id="factSqft">—</strong><span>Square feet</span></article><article><strong id="factYear">—</strong><span>Year built</span></article></div>
-        </section>
-
+        <section class="property-summary panel-card"><div><p class="detail-price" id="propertyPrice"></p><p class="detail-type" id="propertyType"></p></div><div class="summary-facts"><article><strong id="factBeds">—</strong><span>Bedrooms</span></article><article><strong id="factBaths">—</strong><span>Bathrooms</span></article><article><strong id="factSqft">—</strong><span>Square feet</span></article><article><strong id="factYear">—</strong><span>Year built</span></article></div></section>
         <section class="panel-card"><p class="eyebrow">Property overview</p><h2>About this home</h2><p class="property-description" id="propertyDescription"></p><div class="feature-list" id="featureList"></div></section>
-
         <section class="panel-card"><p class="eyebrow">Property facts</p><h2>Home details</h2><dl class="facts-grid" id="propertyFacts"></dl></section>
-
         <section class="panel-card mortgage-panel"><div><p class="eyebrow">Planning estimate</p><h2>Estimated monthly payment</h2><p>Adjust the assumptions to explore a starting payment estimate. Taxes, insurance, HOA fees, and lender terms may vary.</p></div><form id="mortgageForm" class="mortgage-form"><label>Down payment<input id="downPayment" type="number" min="0" step="1000" /></label><label>Interest rate<input id="interestRate" type="number" min="0.1" step="0.01" value="6.75" /></label><label>Loan term<select id="loanTerm"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></label></form><div class="payment-result"><span>Estimated principal & interest</span><strong id="monthlyPayment">—</strong><small id="loanSummary"></small></div></section>
-
         <section class="panel-card"><div class="section-heading compact"><div><p class="eyebrow">More opportunities</p><h2>Similar homes</h2></div><a href="listings.html">View all homes →</a></div><div class="similar-grid" id="similarHomes"></div></section>
       </div>
-
-      <aside class="showing-card">
-        <p class="eyebrow">Private tour</p><h2>Request a showing</h2><p>Choose a preferred date and time. A representative will follow up to confirm availability.</p>
-        <form id="showingForm">
-          <label>Full name<input required name="name" autocomplete="name" /></label>
-          <label>Email<input required type="email" name="email" autocomplete="email" /></label>
-          <label>Phone<input required type="tel" name="phone" autocomplete="tel" /></label>
-          <div class="form-row"><label>Preferred date<input required type="date" name="date" id="showingDate" /></label><label>Time<select required name="time"><option value="">Select</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label></div>
-          <label>Message<textarea name="message" rows="4" placeholder="Questions or scheduling details"></textarea></label>
-          <button class="btn btn-primary full" type="submit">Request This Showing</button>
-          <p class="form-status" id="showingStatus" role="status"></p>
-        </form>
-      </aside>
+      <aside class="showing-card"><p class="eyebrow">Private tour</p><h2>Request a showing</h2><p>Choose a preferred date and time. A representative will follow up to confirm availability.</p><form id="showingForm"><label>Full name<input required name="name" autocomplete="name" /></label><label>Email<input required type="email" name="email" autocomplete="email" /></label><label>Phone<input required type="tel" name="phone" autocomplete="tel" /></label><div class="form-row"><label>Preferred date<input required type="date" name="date" id="showingDate" /></label><label>Time<select required name="time"><option value="">Select</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label></div><label>Message<textarea name="message" rows="4" placeholder="Questions or scheduling details"></textarea></label><button class="btn btn-primary full" type="submit">Request This Showing</button><p class="form-status" id="showingStatus" role="status"></p></form></aside>
     </section>
   </main>
-
   <dialog class="photo-dialog" id="photoDialog"><button id="closeDialog" type="button" aria-label="Close gallery">×</button><img id="dialogPhoto" alt="Expanded property view" /></dialog>
   <div id="siteFooter"></div>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/property-engagement.js"></script>
   <script src="assets/js/layout.js"></script>
   <script src="assets/js/listings-data.js"></script>
   <script src="assets/js/listing-details.js"></script>
