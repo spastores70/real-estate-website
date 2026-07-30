@@ -1,0 +1,23 @@
+name: Production Audit
+
+on:
+  push:
+    branches: [master, v2-platform]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run production audit
+        run: npm run audit
