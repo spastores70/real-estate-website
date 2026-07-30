@@ -1,1 +1,111 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My Dashboard | Texas Home Hub Pro</title><meta name="description" content="Manage saved homes, showing requests, and your Texas real estate journey."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/auth.css"></head><body><div id="siteHeader"></div><main class="dashboard-shell container"><div id="dashboardGate"><div class="protected-message"><h1>Loading your dashboard...</h1><p>Checking your secure account session.</p></div></div><div id="dashboardContent" hidden><div class="dashboard-grid"><aside class="dashboard-sidebar"><p class="eyebrow">My workspace</p><nav><a class="active" href="dashboard.html">Overview</a><a href="listings.html">Saved Homes</a><a href="#showings">Showing Requests</a><a href="#profile">Profile</a><button id="signOutButton" type="button">Sign Out</button></nav></aside><section class="dashboard-main"><div class="dashboard-card"><p class="eyebrow">Welcome back</p><h1>Hello, <span id="welcomeName">there</span>.</h1><p id="accountEmail"></p></div><div class="dashboard-stats"><article class="dashboard-card"><strong class="metric" id="savedCount">0</strong><span>Saved homes</span></article><article class="dashboard-card"><strong class="metric" id="showingCount">0</strong><span>Showing requests</span></article><article class="dashboard-card"><strong class="metric" id="journeyRole">Buyer</strong><span>Primary journey</span></article></div><section class="dashboard-card" id="showings"><p class="eyebrow">Next steps</p><h2>Your real estate command center</h2><p>This foundation is ready for saved-home cards, showing history, documents, seller milestones, mortgage tools, and homeowner services.</p><a class="btn btn-primary" href="listings.html">Explore Texas Homes</a></section></section></div></div></main><div id="siteFooter"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/supabase-config.js"></script><script src="assets/js/property-engagement.js"></script><script src="assets/js/layout.js"></script><script src="assets/js/dashboard.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard | Texas Home Hub Pro</title>
+  <meta name="description" content="Manage saved homes, showing requests, your profile, and your personalized Texas real estate journey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/dashboard-v2.css">
+</head>
+<body class="dashboard-page">
+  <div id="siteHeader"></div>
+
+  <main class="dashboard-v2 container">
+    <div id="dashboardGate" class="protected-message">
+      <h1>Loading your dashboard...</h1>
+      <p>Checking your secure account session.</p>
+    </div>
+
+    <div id="dashboardApp" hidden>
+      <div class="dashboard-mobile-bar">
+        <strong>My Workspace</strong>
+        <button class="dashboard-menu-button" id="dashboardMenuButton" type="button" aria-expanded="false">Menu</button>
+      </div>
+
+      <div class="dashboard-layout">
+        <aside class="dashboard-nav" id="dashboardNav">
+          <div class="dashboard-identity">
+            <div class="dashboard-avatar" id="dashboardAvatar">TH</div>
+            <div><strong id="sidebarName">Member</strong><span id="sidebarEmail"></span></div>
+          </div>
+          <nav class="dashboard-nav-list" aria-label="Dashboard sections">
+            <button class="dashboard-nav-button active" data-panel="overview" type="button">Overview</button>
+            <button class="dashboard-nav-button" data-panel="saved" type="button">Saved Homes</button>
+            <button class="dashboard-nav-button" data-panel="showings" type="button">Showing Requests</button>
+            <button class="dashboard-nav-button" data-panel="journey" type="button">My Journey</button>
+            <button class="dashboard-nav-button" data-panel="profile" type="button">Profile</button>
+          </nav>
+          <button class="dashboard-signout" id="signOutButton" type="button">Sign Out</button>
+        </aside>
+
+        <section class="dashboard-content">
+          <section class="dashboard-panel active" data-panel-content="overview">
+            <div class="dashboard-hero">
+              <div><p class="eyebrow">Welcome back</p><h1>Hello, <span id="welcomeName">there</span>.</h1><p id="overviewMessage">Your Texas real estate workspace is ready.</p></div>
+              <span class="dashboard-role-badge" id="roleBadge">Buyer</span>
+            </div>
+            <div class="dashboard-stat-grid">
+              <article class="dashboard-stat"><strong id="savedCount">0</strong><span>Saved homes</span></article>
+              <article class="dashboard-stat"><strong id="showingCount">0</strong><span>Showing requests</span></article>
+              <article class="dashboard-stat"><strong id="confirmedCount">0</strong><span>Confirmed tours</span></article>
+            </div>
+            <section class="dashboard-section">
+              <div class="dashboard-section-head"><div><p class="eyebrow">Recently saved</p><h2>Your shortlist</h2></div><button class="dashboard-nav-button" data-panel="saved" type="button">View all</button></div>
+              <div class="saved-grid" id="overviewSaved"></div>
+            </section>
+            <section class="journey-card" id="overviewJourney"></section>
+          </section>
+
+          <section class="dashboard-panel" data-panel-content="saved">
+            <section class="dashboard-section">
+              <div class="dashboard-section-head"><div><p class="eyebrow">Property collection</p><h2>Saved homes</h2></div><a href="listings.html">Find more homes →</a></div>
+              <div class="saved-grid" id="savedHomesGrid"></div>
+            </section>
+          </section>
+
+          <section class="dashboard-panel" data-panel-content="showings">
+            <section class="dashboard-section">
+              <div class="dashboard-section-head"><div><p class="eyebrow">Tour management</p><h2>Showing requests</h2></div><a href="listings.html">Request another tour →</a></div>
+              <div class="showing-list" id="showingHistory"></div>
+            </section>
+          </section>
+
+          <section class="dashboard-panel" data-panel-content="journey">
+            <section class="journey-card" id="journeyPanel"></section>
+          </section>
+
+          <section class="dashboard-panel" data-panel-content="profile">
+            <section class="dashboard-section">
+              <div class="dashboard-section-head"><div><p class="eyebrow">Account settings</p><h2>Your profile</h2></div></div>
+              <form class="profile-form" id="profileForm">
+                <div class="profile-row">
+                  <label>Full name<input name="full_name" id="profileName" required autocomplete="name"></label>
+                  <label>Phone<input name="phone" id="profilePhone" type="tel" autocomplete="tel"></label>
+                </div>
+                <div class="profile-row">
+                  <label>Email<input id="profileEmail" type="email" readonly></label>
+                  <label>Primary journey<select name="primary_role" id="profileRole"><option value="buyer">Buyer</option><option value="seller">Seller</option><option value="investor">Investor</option><option value="homeowner">Homeowner</option></select></label>
+                </div>
+                <button class="btn btn-primary" id="saveProfileButton" type="submit">Save Profile</button>
+                <p class="dashboard-status" id="profileStatus" role="status"></p>
+              </form>
+            </section>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/property-engagement.js"></script>
+  <script src="assets/js/listings-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
