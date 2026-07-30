@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Texas Homes | Texas Home Hub Pro</title>
+  <meta name="description" content="Search sample Texas homes by city, ZIP code, price, bedrooms, and property type. Live MLS data will be connected through an authorized IDX provider.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/listings.css">
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow light">Texas property search</p>
+        <h1>Find a home that fits your next chapter.</h1>
+        <p>Explore the current demonstration inventory. This page is architected for a future authorized MLS or IDX connection.</p>
+      </div>
+    </section>
+
+    <section class="container listings-layout">
+      <aside class="filter-panel">
+        <h2>Filter homes</h2>
+        <form id="listingFilters">
+          <label>City, ZIP, or keyword<input type="search" name="location" placeholder="Frisco or 75034"></label>
+          <div class="price-row">
+            <label>Minimum<select name="minPrice"><option value="">No minimum</option><option value="400000">$400,000</option><option value="500000">$500,000</option><option value="600000">$600,000</option><option value="750000">$750,000</option></select></label>
+            <label>Maximum<select name="maxPrice"><option value="">No maximum</option><option value="500000">$500,000</option><option value="650000">$650,000</option><option value="800000">$800,000</option><option value="1000000">$1,000,000</option></select></label>
+          </div>
+          <label>Bedrooms<select name="beds"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></label>
+          <label>Property type<select name="type"><option value="">Any type</option><option value="Single Family">Single Family</option><option value="Condo">Condo</option><option value="Townhome">Townhome</option></select></label>
+          <button class="reset-button" type="reset">Reset filters</button>
+        </form>
+      </aside>
+
+      <div class="results-area">
+        <div class="results-toolbar">
+          <p id="resultsCount" aria-live="polite">0 homes found</p>
+          <label>Sort by <select id="sortBy"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="beds">Most bedrooms</option></select></label>
+        </div>
+        <div class="listings-grid" id="listingsGrid"></div>
+        <div class="empty-state" id="emptyState" hidden><h2>No homes match those filters.</h2><p>Reset the filters or try a nearby community.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="siteFooter"></div>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/listings-data.js"></script>
+  <script src="assets/js/listings.js"></script>
+</body>
+</html>
