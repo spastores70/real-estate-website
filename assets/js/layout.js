@@ -18,8 +18,8 @@ async function loadComponent(targetId, path) {
 }
 
 function initializeMobileNavigation() {
-  const button = document.getElementById('menuToggle');
-  const nav = document.getElementById('mainNav');
+  const button = document.querySelector('[data-menu-toggle]');
+  const nav = document.querySelector('[data-main-nav]');
   if (!button || !nav) return;
 
   button.addEventListener('click', () => {
@@ -30,7 +30,7 @@ function initializeMobileNavigation() {
 
 function markActiveNavigation() {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('[data-nav-link]').forEach((link) => {
+  document.querySelectorAll('[data-main-nav] a').forEach((link) => {
     const href = link.getAttribute('href')?.split('/').pop();
     if (href === currentPath) link.classList.add('active');
   });
