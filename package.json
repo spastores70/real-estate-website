@@ -1,0 +1,9 @@
+{
+  "name": "texas-home-hub-pro",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Texas Home Hub Pro real estate platform",
+  "scripts": {
+    "audit": "node scripts/production-audit.js"
+  }
+}
