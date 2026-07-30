@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin-crm
+Disallow: /admin-properties
+Disallow: /dashboard
+Disallow: /account
+
+Sitemap: https://texashomehubs.com/sitemap.xml
