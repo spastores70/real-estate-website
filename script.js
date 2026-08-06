@@ -6,4 +6,21 @@ function renderCommunities(){document.getElementById('communityGrid').innerHTML=
 const menuToggle=document.getElementById('menuToggle');const mainNav=document.getElementById('mainNav');menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'✕':'☰'});mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰'}));
 document.getElementById('heroSearch').addEventListener('submit',event=>{event.preventDefault();const location=document.getElementById('locationInput').value.trim();const price=document.getElementById('priceInput').value;const beds=document.getElementById('bedsInput').value;const filtered=listings.filter(item=>{const locationMatch=!location||`${item.title} ${item.location}`.toLowerCase().includes(location.toLowerCase());const priceMatch=!price||(price==='1000000'?item.price>=1000000:item.price<=Number(price));const bedMatch=!beds||item.beds>=Number(beds.replace('+',''));return locationMatch&&priceMatch&&bedMatch});renderListings(filtered.length?filtered:listings);document.getElementById('homes').scrollIntoView({behavior:'smooth'});});
 document.getElementById('valueForm').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const name=new FormData(form).get('name');document.getElementById('valueStatus').textContent=`Thank you, ${name}. Your request is ready to connect to the Texas Home Hub lead database.`;form.reset()});
-renderListings();renderCommunities();
+
+function applyNoonDallasHero(){
+  const hero=document.querySelector('.hero');
+  const overlay=document.querySelector('.hero-overlay');
+  if(hero){
+    hero.style.backgroundImage="url('https://unsplash.com/photos/CDh1oG_9Kbg/download?force=true&w=2200')";
+    hero.style.backgroundPosition='center center';
+    hero.style.backgroundSize='cover';
+    hero.style.backgroundRepeat='no-repeat';
+  }
+  if(overlay) overlay.style.display='none';
+  const heading=document.querySelector('.hero h1');
+  const copy=document.querySelector('.hero-copy');
+  const trust=document.querySelector('.hero-trust');
+  [heading,copy,trust].forEach(el=>{if(el)el.style.textShadow='0 2px 14px rgba(0,0,0,.72)'});
+}
+
+renderListings();renderCommunities();applyNoonDallasHero();
